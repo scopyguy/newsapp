@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:newsapp/core/constant/constant.dart';
 import 'package:newsapp/core/resources/data_state.dart';
 import 'package:newsapp/features/auth/data/data_sources/remote/newsapi_service.dart';
@@ -18,24 +19,11 @@ class ArticleRepositoryImpl implements ArticleRepository {
         islam: islamQuery,
         category: categoryQuery,
       );
-     
+
+      print(httpResponse);
+      return DataSuccess([]);
+    } on DioError catch (e) {
+      return DataFailed(e);
+    }
   }
-
-if (HttpResponse.response.statusCode == HttpStatus.ok){
-return DataSuccess(HttpResponse.data);
-
-}else {
-  return DataFailed(
-    DioError(
-     error: HttpResponse.response.statusMessage,
-      response: HttpResponse.response,
-      type: DioErrorType.response,
-      requestOptions: httpResponse.response.requestOptions,
-    ),
-    );
-  
-}
-} on DioError catch(e){
-  return DataFailed(e);
-}
 }

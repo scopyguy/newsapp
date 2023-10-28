@@ -12,7 +12,7 @@ class ArticleRepositoryImpl implements ArticleRepository {
 
   @override
   Future<DataState<List<ArticleModels>>> getNewsArticles() async {
-    try {
+  try
       final httpResponse = await _newsApiService.getNewsArticles(
         apiKey: newsAPIKey,
         islam: islamQuery,

@@ -9,7 +9,7 @@ ThemeData theme() {
 }
 
 AppBarTheme _appBarTheme() {
-  return AppBarTheme(
+  return const AppBarTheme(
       color: Colors.white,
       elevation: 0,
       centerTitle: true,

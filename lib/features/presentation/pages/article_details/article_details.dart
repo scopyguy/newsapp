@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -119,6 +118,7 @@ class ArticicleDetailsView extends HookWidget {
 
   void _onFloatingActionButtonPressed(BuildContext context) {
     BlocProvider.of<LocalArticlesBloc>(context).add(SavedArticle(article!));
+
     const SnackBar(
         backgroundColor: Colors.black,
         content: Text('Article Saved succesfully.'));

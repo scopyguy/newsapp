@@ -13,8 +13,8 @@ import 'package:newsapp/features/presentation/bloc/article/remote/remote_article
 
 final sl = GetIt.instance;
 Future<void> initializeDependencies() async {
-  final database =
-      await $FloorAppDatabase.dataBaseBuilder('app_database.db').build();
+  final dataBase =
+      await $FloorAppDataBase.databaseBuilder('app_dataBase.db').build();
   sl.registerSingleton<AppDataBase>(dataBase);
   sl.registerSingleton<Dio>(Dio());
   sl.registerSingleton<NewsApiService>(NewsApiService(sl()));

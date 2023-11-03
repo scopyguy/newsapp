@@ -7,7 +7,7 @@ class RemoveArticleUseCase implements UseCase<void, ArticleEntity> {
   RemoveArticleUseCase(this._articleRepository);
 
   @override
-  Future<void> call({ArticleEntity? params}) {
+  Future<void> call({dynamic Params, params}) {
     return _articleRepository.savedArticle(params!);
   }
 }

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: theme(),
-          home: DailyNews(),
+          home: const DailyNews(),
         ));
   }
 }

@@ -37,7 +37,9 @@ class DailyNews extends StatelessWidget {
         if (state is RemoteArticlesDone) {
           return ListView.builder(
             itemBuilder: (context, index) {
-              return ArticleWidget(article: state.articles![index]);
+              return GestureDetector(
+                  onTap: () => _onArticlePressed(context, state.articles!),
+                  child: ArticleWidget(article: state.articles![index]));
             },
             itemCount: state.articles!.length,
           );
@@ -47,5 +49,7 @@ class DailyNews extends StatelessWidget {
     );
   }
 
-  ArticleWidget({required ArticleEntity article}) {}
+  void _onArticlePressed(BuildContext context, ArticleEntity article) {
+    Navigator.pushNamed(context, '/ArticleDetails', arguments: article);
+  }
 }
